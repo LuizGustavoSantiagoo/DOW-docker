@@ -4,7 +4,7 @@ include './actions/connect.php';
 
 $id = $_GET['id'] ?? null;
 
-if($id) {
+if ($id) {
     $sql = "SELECT * FROM users WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
@@ -134,7 +134,14 @@ if($id) {
     }
 </style>
 
-<div class="page">
+<div class="page" style="display: flex; flex-direction: row; gap: 32px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+
+    <div class="grafico-container">
+        <h2>
+            mapa de calor de usuários cadastrados
+        </h2>
+        <iframe src="https://luiz-ltda.local/grafana/d-solo/adfzl86/heatmap-de-usuarios-cadastrados?orgId=1&from=-560476800000&to=1543622400000&timezone=browser&panelId=panel-1&__feature.dashboardScene=true" width="450" height="200" frameborder="0"></iframe>
+    </div>
     <div class="form-card">
         <h1>Criar Usuário</h1>
         <p>Preencha os dados abaixo para cadastrar um novo usuário.</p>
@@ -145,11 +152,11 @@ if($id) {
             $id = $_GET['id'] ?? null;;
 
             if ($r === 'sucesso') {
-                echo '<div style="padding: 12px; background-color: #d1fae5; color: #065f46; border-radius: 8px; margin-bottom: 16px;">Usuário '. ($id ? 'atualizado' : 'criado') . ' com sucesso!</div>';
+                echo '<div style="padding: 12px; background-color: #d1fae5; color: #065f46; border-radius: 8px; margin-bottom: 16px;">Usuário ' . ($id ? 'atualizado' : 'criado') . ' com sucesso!</div>';
             } elseif ($r === 'erro') {
                 echo '<div style="padding: 12px; background-color: #fee2e2; color: #991b1b; border-radius: 8px; margin-bottom: 16px;">Ocorreu um erro ao ' . ($id ? 'atualizar' : 'criar') . ' o usuário. Tente novamente.</div>';
             }
-        ?>
+            ?>
         </div>
 
         <form action="<?php echo $id ? '../actions/update.php' : '../actions/create.php'; ?>" method="POST">
@@ -162,7 +169,7 @@ if($id) {
 
             <div class="field">
                 <label for="telefone">Telefone</label>
-                <input require type="tel" id="telefone" name="telefone" value="<?php echo isset($user['telefone']) ? htmlspecialchars($user['telefone']) : ''; ?>"   required>
+                <input require type="tel" id="telefone" name="telefone" value="<?php echo isset($user['telefone']) ? htmlspecialchars($user['telefone']) : ''; ?>" required>
             </div>
 
             <div class="field">
@@ -180,4 +187,10 @@ if($id) {
             </div>
         </form>
     </div>
-</div>
+
+    <div>
+        <div class="grafico-container">
+            <h2>Estatísticas de Usuários</h2>
+            <iframe src="https://luiz-ltda.local/grafana/d-solo/adm7bsf/2b-18?orgId=1&from=1773680742276&to=1773702342276&timezone=browser&panelId=panel-1" width="450" height="200" frameborder="0"></iframe>
+        </div>
+    </div>

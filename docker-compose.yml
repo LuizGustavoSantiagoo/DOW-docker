@@ -35,5 +35,26 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+
+      - GF_SERVER_DOMAIN=luiz-ltda.local
+      - GF_SERVER_ROOT_URL=https://luiz-ltda.local/grafana/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - db
+    
+
 volumes:
   db_data:
+  grafana_data:
