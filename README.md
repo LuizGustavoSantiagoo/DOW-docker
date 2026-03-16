@@ -37,6 +37,21 @@ CREATE TABLE users (
      &nbsp;&nbsp;data_nasc DATE  
 );
 
+### Dados para popular a tabela users
+
+```
+INSERT INTO users (nome, endereco, telefone, data_nasc, created_at) VALUES
+('Carlos Alberto Salles', 'Av. Paulista, 1500', '(11) 91234-5678', '1975-03-15', '2024-03-10'),
+('Julia Mendes', 'Rua das Flores, 42', '(21) 92345-6789', '1998-11-20', '2024-03-10'),
+('Ricardo Oliveira', 'Al. Santos, 100', '(11) 93456-7890', '1988-06-05', '2024-03-11'),
+('Mariana Costa', 'Rua Bahia, 500', '(31) 94567-8901', '2005-01-30', '2024-03-11'),
+('Enzo Gabriel', 'Av. Central, 10', '(41) 95678-9012', '2015-08-12', '2024-03-12'),
+('Valentina Souza', 'Rua do Porto, 88', '(51) 96789-0123', '2010-04-25', '2024-03-12'),
+('Pedro Bial', 'Rua da Globo, 1', '(21) 97890-1234', '1952-03-29', '2024-03-13'),
+('Arthur Silva', 'Rua Itajubá, 30', '(31) 98901-2345', '2012-09-14', '2024-03-13'),
+('Sophia Martins', 'Rua Curitiba, 77', '(41) 99012-3456', '2018-12-01', '2024-03-14'),
+('Lucas Neto', 'Av. das Americas, 3000', '(21) 90123-4567', '2008-02-10', '2024-03-14');
+```
 ---
 
 ## 📋 Anexo: Instruções Originais do Trabalho
