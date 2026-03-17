@@ -1,4 +1,7 @@
 # DOW-docker 🐳
+<a target="_blank" href="https://hub.docker.com/repositories/santeago">
+    <img src="https://img.shields.io/badge/docker HUB-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"/>
+</a>
 
 **Disciplina:** Desenvolvimento e Operações na Web  
 **Trabalho 1:** Aplicação Web Conteinerizada  
